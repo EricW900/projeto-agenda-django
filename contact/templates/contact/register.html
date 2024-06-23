@@ -1,7 +1,7 @@
 {% extends "global/base.html" %}
 
 {% block content %}
-    <h1>CREATE CONTACT</h1>
+    <h1>Register</h1>
     <div class="form-wrapper">
 
     <h2>Contact</h2>
@@ -9,7 +9,6 @@
     <form
         action="{% url "contact:create" %}"
         method="POST"
-        enctype="multipart/form-data"
     >
 
     {% csrf_token %}
@@ -25,9 +24,6 @@
                 <p class="help-text">{{ field.help_text }}</p>
               {% endif %}
             </div>
-            {% if field.name == 'picture' and field.value.url %}
-              <img src="{{ field.value.url }}" alt="">
-              {% endif %}
           {% endfor %}
         </div>
 
