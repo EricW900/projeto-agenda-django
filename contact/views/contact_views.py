@@ -4,7 +4,7 @@ from contact.models import Contact
 from django.db.models import Q
 from django.contrib.auth.decorators import login_required
 
-#@login_required(login_url='contact:login')
+@login_required(login_url='contact:login')
 def index(request):
     contacts = Contact.objects \
         .filter(show=True) \
@@ -43,7 +43,7 @@ def search(request):
 
     return render(request, 'contact/index.html', context)
 
-
+@login_required(login_url='contact:login')
 def contact(request, contact_id):
     single_contact = get_object_or_404(Contact.objects, pk=contact_id, show=True)
     contact_name = f'{single_contact.first_name} {single_contact.last_name} - '
