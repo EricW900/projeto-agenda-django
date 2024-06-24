@@ -2,8 +2,9 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.core.paginator import Paginator
 from contact.models import Contact
 from django.db.models import Q
-from django.http import Http404
+from django.contrib.auth.decorators import login_required
 
+#@login_required(login_url='contact:login')
 def index(request):
     contacts = Contact.objects \
         .filter(show=True) \
