@@ -18,7 +18,7 @@ def index(request):
 
     return render(request, 'contact/index.html', context)
 
-
+@login_required(login_url='contact:login')
 def search(request):
     search_value = request.GET.get('q', '').strip()
 
