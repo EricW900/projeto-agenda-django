@@ -5,6 +5,7 @@ from django.contrib.auth.decorators import login_required
 
 from contact.forms import RegisterForm, RegisterUpdateForm
 
+@login_required(login_url='contact:login')
 def register(request):
     form = RegisterForm()
 
